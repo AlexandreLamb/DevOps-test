@@ -133,6 +133,6 @@ describe('[CASE-12] - isLink ', () => {
         // Act
         const result = isLink(param);
         // Assert
-        expect(result).toBe(false);
+        expect(result).toBe(true);
     });
 });
