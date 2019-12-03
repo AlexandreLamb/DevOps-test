@@ -17,22 +17,22 @@ const attributes = {
     },
     createAt: {
         type: Date,
-        required: true
+        required: false
     },
     updateAt: {
         type: Date,
-        require: true
+        require: false
     },
     authName: {
         type: String,
-        required: true
+        required: false
     }
 };
 
 const options = {};
 
-const subjectSchema = new Schema(attributes,options);
+const SubjectSchema = new Schema(attributes,options);
 
-const subjectModel = model(name, subjectSchema);
+const SubjectModel = model(name, SubjectSchema);
 
 module.exports = SubjectModel;

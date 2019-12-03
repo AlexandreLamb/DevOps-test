@@ -1,4 +1,5 @@
-const SubjectModel = require('@models');
+const { SubjectModel } = require('../../../models/index');
+const { isDate,isLink } = require('../../../core/helpers/formatChecker') 
 /**
  * Request structure
  * req = { body: { } }
@@ -10,37 +11,35 @@ const SubjectModel = require('@models');
  */
 const secure = async req => {
     const inputs = {};
-    
     if(req.body.name === null || req.body.name === undefined){
-        throw new Error('subect name undefined/null');
+        throw new Error('subject name undefined/null');
     }
     inputs.name = req.body.name;
 
-    if(req.body.link === null || req.body.link === undefined){
-        throw new Error('subect link undefined/null');
+    if(req.body.link === null || req.body.link === undefined || !isLink(req.body.link) ){
+        throw new Error('subject link undefined/null');
     }
     inputs.link = req.body.link;
 
     if(req.body.content === null || req.body.content === undefined){
-        throw new Error('subect content undefined/null');
+        throw new Error('subject content undefined/null');
     }
     inputs.content = req.body.content;
 
-    if(req.body.createAt === null || req.body.createAt === undefined){
-        throw new Error('subect createAt undefined/null');
+    if(req.body.createAt === null || req.body.createAt === undefined || !isDate(req.body.createAt) ){
+        throw new Error('subject createAt undefined/null/invalid format');
     }
     inputs.createAt = req.body.createAt;
 
     if(req.body.updateAt === null || req.body.updateAt === undefined){
-        throw new Error('subect updateAt undefined/null');
+        throw new Error('subject updateAt undefined/null');
     }
     inputs.updateAt = req.body.updateAt;
 
     if(req.body.authName === null || req.body.authName === undefined){
-        throw new Error('subect authName undefined/null');
+        throw new Error('subject authName undefined/null');
     }
     inputs.authName = req.body.authName;
-
     return inputs;
   };
   
@@ -62,9 +61,7 @@ const secure = async req => {
   const createSubject = async (req, res) => {
     try {
       const inputs = await secure(req);
-  
       const param = await process(inputs);
-  
       res.status(200).json(param);
     } catch (error) {
       console.log("ERROR MESSAGE :", error.message);
@@ -72,4 +69,4 @@ const secure = async req => {
       res.status(400).json({ message: error.message });
     }
   };
-  module.exports = createSubject;
+  module.exports = {createSubject, secure, process};

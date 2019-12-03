@@ -1,0 +1,88 @@
+import datetime
+myclient = pymongo.MongoClient('mongodb://localhost:27017/')
+mydb = myclient['"company"']
+mycol = mydb["employees"]
+mycol.drop();
+mycol.insertMany([
+
+{"_id": 7839, "name": "King", "job": "president", "manager": null, "hired": datetime.datetime(1981,11,17)
+
+, "salary": 5000, "commission": null},
+{"_id": 7840, "name": "Lion", "job": "president", "manager": null, "hired": datetime.datetime(1981,11,17)
+
+, "salary": 5000, "commission": null},
+{"_id": 7841, "name": "Mouse", "job": "president", "manager": null, "hired":datetime.datetime(1981,11,17)
+
+, "salary": 5000, "commission": null},
+
+{"_id": 7566, "name": "Jones", "job": ""manager"", "manager": 7839, "hired": datetime.datetime(1981,4,2)
+
+, "salary": 2975, 
+	"department": {"name": "Research", "location": "Dallas"}},
+
+{"_id": 7698, "name": "Blake", "job": ""manager"", "manager": 7839, "hired": datetime.datetime(1981,5,1), "salary": 2850, 
+	"department": {"name": "Sales", "location": "Chicago"},
+	"missions": [
+		{"company": "Mac Donald", "location": "Chicago"}, 
+		{"company": "IBM", "location": "Chicago"}
+	]},
+
+{"_id": 7782, "name": "Clark", "job": ""manager"", "manager": 7839, "hired": datetime.datetime(1980,12,17), "salary": 3000,
+	"department": {"name": "Accounting", "location": "New-York"},
+	"missions": [
+		{"company": "BMW", "location": "Chicago"}
+	]},
+
+{"_id": 8000, "name": "Smith", "job": ""manager"", "manager": 7839, "hired": datetime.datetime(1981,6,9), "salary": 2450,
+	"department": {"name": "Accounting", "location": "New-York"},
+	"missions": [
+		{"company": "ECE", "location": "Paris"}
+	]},
+
+{"_id": 7788, "name": "Scott", "job": "analyst", "manager": 7566, "hired": datetime.datetime(1981,11,9), "salary": 3000,
+	"department": {"name": "Research", "location": "Dallas"}},
+
+{"_id": 7902, "name": "Ford", "job": "analyst", "manager": 7566, "hired": datetime.datetime(1981,12,3), "salary": 3000, 
+	"department": {"name": "Research", "location": "Dallas"},
+	"missions": [
+		{"company": "Oracle", "location": "Dallas"}
+	]},
+
+{"_id": 7499, "name": "Allen", "job": "salesman", "manager": 7698, "hired": datetime.datetime(1981,2,20), "salary": 1600, "commission": 300, 
+	"department": {"name": "Sales", "location": "Chicago"},
+	"missions": [
+		{"company": "Decathlon", "location": "Lyon"},
+		{"company": "Conran Shop", "location": "Paris"}
+	]},
+
+{"_id": 7521, "name": "Ward", "job": "salesman", "manager": 7698, "hired": datetime.datetime(1981,2,22), "salary": 1250, "commission": 500, 
+	"department": {"name": "Sales", "location": "Chicago"}},
+
+{"_id": 7654, "name": "Martin", "job": "salesman", "manager": 7698, "hired": datetime.datetime(1981,9,28), "salary": 1250, "commission": 1400, 
+	"department": {"name": "Sales", "location": "Chicago"}, 
+	"missions": [
+		{"company": "BMW", "location": "Berlin"}
+	]},
+
+{"_id": 7844, "name": "Turner", "job": "salesman", "manager": 7698, "hired": datetime.datetime(1981,9,8), "salary": 1500, "commission": 0, 
+	"department": {"name": "Sales", "location": "Chicago"}},
+
+{"_id": 7900, "name": "James", "job": "clerk", "manager": 7698, "hired": datetime.datetime(1981,12,3), "salary": 950, 
+	"department": {"name": "Sales", "location": "Chicago"},
+	"missions": [
+		{"company": "Fidal", "location": "Paris"}
+	]},
+
+{"_id": 7934, "name": "Miller", "job": "clerk", "manager": 7782, "hired": datetime.datetime(1982,1,23), "salary": 1300, 
+	"department": {"name": "Accounting", "location": "New-York"}},
+
+{"_id": 7876, "name": "Adams", "job": "clerk", "manager": 7788, "hired": datetime.datetime(1981,9,23), "salary": 1100, 
+	"department": {"name": "Research", "location": "Dallas"}},
+
+{"_id": 7369, "name": "Smith", "job": "clerk", "manager": 7902, "hired": datetime.datetime(1980,12,17), "salary": 800, 
+	"department": {"name": "Research", "location": "Dallas"},
+	"missions": [
+	{"company": "IBM", "location": "London"}
+	]}
+
+]);

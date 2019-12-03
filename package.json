@@ -4,19 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest backend/test",
     "dev": "nodemon backend/server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cjs-loader": "^0.1.0",
+    "cors": "^2.8.5",
     "cross-env": "^6.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jest": "^24.9.0",
+    "jest-cli": "^24.9.0",
     "module-alias": "^2.2.2",
     "mongoose": "^5.7.12",
-    "nodemon": "^2.0.1"
+    "nodemon": "^2.0.1",
+    "supertest": "^4.0.2"
   },
   "_moduleAliases": {
     "@root": ".",
@@ -26,5 +31,8 @@
     "@core": "./backend/core",
     "@services": "./backend/services",
     "@middlewares": "./backend/middlewares"
+  },
+  "devDependencies": {
+    "@shelf/jest-mongodb": "^1.1.3"
   }
 }
