@@ -83,7 +83,7 @@ describe('[CASE-7] - isDate ', () => {
         // Act
         const result = isDate(param);
         // Assert
-        expect(result).toBe(false);
+        expect(result).toBe(true);
     });
 });
 describe('[CASE-8] - isLink ', () => {
